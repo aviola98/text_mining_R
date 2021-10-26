@@ -93,18 +93,23 @@ for (link in data_research$links){
 
 #only taking the first 100 news
 
-
-
-
-
+#creating an empty tibble where we'll store the data 
 dados_noticias <- tibble()
 
+#loop 
+#we have a link variable which gets at teach iteration an URL address in order
+#these addresses are stored in the links variable created in the database above
+
 for (link in data_research$links[1:100]){
-  
+
+   #printing the link 
   print(link)
   
+  #reading the link using the function read_html and storing it in the variable "pagina"
   pagina <- read_html(link)
+  #reading the nodes in "pagina" using html_nodes and storing them in the node_titulo variable
   node_titulo <- html_nodes(pagina, xpath = "//h1[@class = 'c-content-head__title']")
+  #reading the title of the news from the nodes using the function html_text and cleaning it using squish
   titulo <- html_text(node_titulo) %>%
     str_squish()
   

@@ -146,7 +146,7 @@ noticias_df %>%
   anti_join(stopwords_pt_df, by = c("word1" = "word")) %>%
   anti_join(stopwords_pt_df, by = c("word2" = "word")) %>%
   anti_join(stopwords_pt_df, by = c("word3" = "word")) %>%
-  count(word1, word2, word3, sort = TRUE)
+  count(word1, word2, word3, sort = TRUE) 
 
 #text web
 
